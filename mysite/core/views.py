@@ -1,7 +1,9 @@
+import os
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse_lazy
+from django.conf import settings
 
 from .forms import BookForm
 from .models import Book
@@ -44,6 +46,7 @@ def upload_book(request):
 def delete_book(request, pk):
     if request.method == 'POST':
         book = Book.objects.get(pk=pk)
+        os.remove(os.path.join(settings.MEDIA_ROOT, book.pdf.name))
         book.delete()
     return redirect('book_list')
 

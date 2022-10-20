@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, null=False, blank=True)
+    author = models.CharField(max_length=100, null=True, blank=True)
     pdf = models.FileField(upload_to='books/pdfs/')
     cover = models.ImageField(upload_to='books/covers/', null=True, blank=True)
 

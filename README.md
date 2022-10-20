@@ -37,6 +37,13 @@ python manage.py runserver
 
 The project will be available at **127.0.0.1:8000**.
 
+Also, you can run it the next way to connect the website from another machine/device:
+
+```bash
+virtualenv venv
+chmod u+x run.sh
+./run.sh
+```
 
 ## License
 

@@ -29,7 +29,13 @@
               <span class="text-muted">No cover</span>
             {% endif %}
           </td>
-          <td>{{ book.title }}</td>
+          <td>
+              {% if book.title %}
+	  	        {{ book.title }}
+	  	      {% else %}
+	  	        {{ book.pdf.name | slice:"11:" }}
+	  	  	  {% endif %}
+          </td>
           <td>{{ book.author }}</td>
           <td>
             <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
